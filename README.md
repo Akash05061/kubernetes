@@ -1,4 +1,5 @@
-
+## What is Kubernetes?
+Kubernetes is an open source platform that deploys and manages many containers in a virtual environment.
 <img width="1511" height="850" alt="image" src="https://github.com/user-attachments/assets/4758b00a-3594-46e6-9434-62accdce4e2b" />
 
 
