@@ -1,3 +1,7 @@
+
+<img width="1511" height="850" alt="image" src="https://github.com/user-attachments/assets/4758b00a-3594-46e6-9434-62accdce4e2b" />
+
+
 ## The Control Plane (Master Node Components)
 
 The Control Plane's components make global decisions about the cluster (like scheduling) and detect and respond to cluster events.
