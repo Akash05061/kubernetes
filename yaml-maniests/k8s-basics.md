@@ -76,3 +76,38 @@
 | PV       | Provides persistent storage     | Independent of Pod |
 | PVC      | Requests storage for a Pod      | Tied to Pod usage  |
 
+# StorageClass
+
+## StorageClass
+- Defines **how dynamic storage is provisioned** in a cluster.
+- Specifies **provisioner**, **parameters**, and **reclaim policy**.
+- Used when a PersistentVolumeClaim (PVC) requests storage dynamically.
+- Examples of provisioners:  
+  - AWS EBS → `kubernetes.io/aws-ebs`  
+  - GCP PD → `kubernetes.io/gce-pd`  
+  - NFS → `kubernetes.io/nfs`  
+  - Local → `kubernetes.io/no-provisioner`
+
+## Key Fields
+- `provisioner` → the type of storage backend.  
+- `parameters` → backend-specific settings (e.g., disk type, replication).  
+- `reclaimPolicy` → what happens to the storage when PVC is deleted (`Delete` or `Retain`).  
+- `volumeBindingMode` → when the PV is bound (`Immediate` or `WaitForFirstConsumer`).
+
+## Flow
+1. Developer creates a PVC **without specifying a PV**.  
+2. Kubernetes uses StorageClass to **dynamically create a PV**.  
+3. PVC is bound to the dynamically created PV.  
+4. Pod uses the PVC for persistent storage.
+
+---
+
+## Quick Comparison
+
+| Concept        | Purpose                                      |
+|----------------|---------------------------------------------|
+| PV             | Provides actual storage                      |
+| PVC            | Requests storage for a Pod                   |
+| StorageClass   | Defines **how storage should be provisioned** dynamically |
+
+
