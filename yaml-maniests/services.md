@@ -1,0 +1,1 @@
+We cannot access Pods directly from outside the cluster because their IPs are ephemeral and only valid inside the cluster. A Service gives a stable IP or DNS name to access the application consistently, even if Pods are restarted or updated. It also provides load balancing across Pods
