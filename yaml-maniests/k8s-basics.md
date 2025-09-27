@@ -44,3 +44,35 @@
 |-------------|------------|-----------------|---------------------------|
 | emptyDir    | Temporary  | Pod-only        | Cache, scratch space      |
 | hostPath    | Persistent | Host & Pod      | Logs, host files, custom paths |
+
+# Persistent Storage
+
+## PersistentVolume (PV)
+- A PV is a **cluster-wide storage resource**.
+- Created by the admin or dynamically by StorageClass.
+- Can be backed by **hostPath, NFS, cloud disks, or other storage types**.
+- Provides **persistent storage** independent of Pod lifecycle.
+
+## PersistentVolumeClaim (PVC)
+- A PVC is a **request for storage by a Pod**.
+- Specifies **size, access mode, and storage class**.
+- Kubernetes matches the PVC with an available PV.
+- Pod uses the PVC as a volume; data persists even if the Pod is deleted.
+
+---
+
+## Quick Flow
+1. Admin creates PV (or StorageClass for dynamic provisioning).  
+2. Developer creates PVC specifying required storage.  
+3. Kubernetes binds PVC to a suitable PV.  
+4. Pod mounts PVC to access persistent storage.
+
+---
+
+## Quick Comparison
+
+| Resource | Purpose                        | Lifecycle           |
+|----------|--------------------------------|------------------|
+| PV       | Provides persistent storage     | Independent of Pod |
+| PVC      | Requests storage for a Pod      | Tied to Pod usage  |
+
